@@ -1,25 +1,34 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import {Route, Routes} from 'react-router-dom'
+import Login from './components/Login';
+import Signup from './components/Signup';
+import ListTransaction from './components/ListTransactions'
+import HeaderComponent from './components/headerComponent';
+import FooterComponent from './components/footerComponent';
+import netflix from '../src/img/netflixBackground.png'
+import moneypic from '../src/img/money-transfer-mobile-banking.jpg'
 
-function App() {
+
+
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ backgroundImage: `url(${moneypic})`}} className="babe" >
+      <HeaderComponent/>
+    <div className="container">
+    <Routes>
+    <Route exact path = "/" element = {<Signup/>}/>
+    <Route path="/log-in" element = {<Login/>}/>
+    <Route path="/transactions" element = {<ListTransaction/>}/>
+    <Route path = "/sign-up" element = {<Signup/>}/>
+     
+     </Routes>
     </div>
-  );
+    <FooterComponent/>
+
+    </div>
+  )
 }
 
-export default App;
+export default App
